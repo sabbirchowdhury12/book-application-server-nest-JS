@@ -11,10 +11,10 @@ import {
 import { BookService } from './book.service';
 import { Book } from './book.interface';
 
-@Controller('books')
+@Controller('/')
 export class BookController {
   constructor(private readonly bookService: BookService) {}
-  @Get()
+  @Get('books')
   async getBooks(
     @Query('search') search: string,
     @Query('genre') genre: string,
@@ -22,20 +22,20 @@ export class BookController {
   ): Promise<Book[]> {
     return await this.bookService.getBooks(search, genre, year);
   }
-  @Get(':id')
+  @Get('book/:id')
   async getBook(@Param('id') id: string) {
     return await this.bookService.getBook(id);
   }
-  @Post()
+  @Post('book')
   async addBook(@Body() book: Book) {
     return await this.bookService.addBook(book);
   }
-  @Patch(':id')
+  @Patch('book/:id')
   async editBook(@Body() book: Book, @Param('id') id: string) {
     return await this.bookService.editBook(id, book);
   }
 
-  @Delete(':id')
+  @Delete('book/:id')
   async deleteBook(@Param('id') id: string) {
     return await this.bookService.deleteBook(id);
   }

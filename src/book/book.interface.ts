@@ -6,7 +6,7 @@ export interface Book {
   author: string;
   genre: string;
   publicationDate: string;
-  reviews: string[];
+  reviews?: string[];
 }
 
 export interface ResponseType {
