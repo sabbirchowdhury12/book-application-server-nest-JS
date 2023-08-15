@@ -9,7 +9,7 @@ import { MongoClient } from 'mongodb';
       useFactory: async () => {
         try {
           const client = await MongoClient.connect(
-            'mongodb://localhost:27017',
+            'mongodb+srv://EmaJohnDbUser:GCjWcWAqulluEha2@cluster0.6jo974x.mongodb.net/?retryWrites=true&w=majority',
             {},
           );
           return client.db('bookDbUser');
