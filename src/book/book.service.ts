@@ -30,7 +30,6 @@ export class BookService {
     const result = await this.db.collection('books').find(query).toArray();
     const books: Book[] = result.map((doc) => ({
       _id: doc._id,
-      img: doc.img,
       title: doc.title,
       author: doc.author,
       genre: doc.genre,
